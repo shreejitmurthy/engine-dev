@@ -22,7 +22,7 @@ All external references (i.e., libraries) will be provided as hyperlinks, linkin
 
 ## Core Development
 ### Post 2
-#### Monday, 6 January 2024
+#### 6 January 2025
 Before diving into any real programming, I need to decide on the coding environment, build system, and libraries. Initially, I was drawn to Rust and [wgpu](https://wgpu.rs/) as the “future” of graphics. I quickly whipped up a basic open-window script and started tinkering with the wgpu API, but it didn’t take long to realize this was too complex for me. Maybe it’s because Rust has an overly intricate syntax (it does), or maybe it’s just that I don’t really understand the language yet (I don’t).
 
 At the moment, Rust doesn’t offer me anything that C++ doesn’t already provide. Perhaps as I gain more experience with C and C++, I’ll come to appreciate why so many developers love Rust. But for now, I’ll stick with C++ and [OpenGL](https://www.opengl.org/), as they’re what I’m most familiar with. I did consider [Vulkan](https://www.vulkan.org/), but writing over 1.2k lines of code just to render a triangle? No thanks.
@@ -55,7 +55,7 @@ target_link_libraries(Asura ${ASURA_LIBS})
 ```
 
 Next I'll create the `main.cpp` file we link to in the build script.
-```c++
+```cpp
 #include <iostream>
 
 int main() {
@@ -77,3 +77,117 @@ In the next post, I'll bring in the engine's dependencies, and aim to create a s
 
 ####  Resources:
 - [CMake](https://cmake.org/)
+
+## Post 3
+### 7 January 2025
+Forgot to mention I'll also be using [spdlog](https://github.com/gabime/spdlog) for logging.
+
+Today, I'll get a basic window rendering, very simply, with this code here. I won't explain the code much, but here it is:
+```cpp
+#include <iostream>
+
+#include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>
+
+#include <glad/glad.h>
+
+#include <spdlog/spdlog.h>
+
+int main() {
+    if (!SDL_Init(SDL_INIT_VIDEO)) {
+        spdlog::error("ASURA::Initialise Error: {}", SDL_GetError());
+    }
+
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
+    SDL_Window* window = SDL_CreateWindow("Window", 800, 600, SDL_WINDOW_OPENGL);
+    SDL_GLContext ctx = SDL_GL_CreateContext(window);
+    bool open = true;
+
+    if (gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress) == 0) {
+        spdlog::error("ASURA::Failed to initialise GLAD");
+    }
+
+    SDL_GL_SetSwapInterval(1);
+
+    SDL_Event event;
+
+    while (open) {
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+                case SDL_EVENT_QUIT:
+                    open = false;
+                    break;
+
+                case SDL_EVENT_KEY_DOWN:
+                    if (event.key.key == SDLK_ESCAPE) {
+                        open = false;
+                    }
+
+                default:
+                    break;
+            }
+        }
+
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        SDL_GL_SwapWindow(window);
+    }
+
+    SDL_DestroyWindow(window);
+    SDL_GL_DestroyContext(ctx);
+    SDL_Quit();
+    spdlog::info("ASURA::Goodbye!");
+
+    return 0;
+}
+```
+
+Here is the CMakeLists.txt used for this, each dependency is simply compiled by using `add_subdirectory`, to me, it's basically magic.
+```cmake
+cmake_minimum_required(VERSION 3.28)
+project(Asura VERSION 0.1.0 LANGUAGES C CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
+
+add_subdirectory(vendor/SDL)
+add_subdirectory(vendor/spdlog)
+
+include_directories(
+    vendor/
+    vendor/glad
+)
+
+find_package(OpenGL REQUIRED)
+
+set(ASURA_LIBS
+    OpenGL::GL
+    SDL3::SDL3
+    spdlog
+)
+
+set(ASURA_SRC
+    src/main.cpp
+)
+
+set(DEP_SRC
+    vendor/glad/glad.c
+)
+
+add_executable(Asura ${ASURA_SRC} ${DEP_SRC})
+
+target_link_libraries(Asura ${ASURA_LIBS})
+
+```
+
+I'll just keep this here in case I need to come back for a starting SDL, OpenGL and C++ template.
+
+This was a shorter post, but I've been travelling, so little is to be expected from the next few days. 
+
+Next post, I'll probably explore some game engine architecture, and decide on the specifics of my game engine.
