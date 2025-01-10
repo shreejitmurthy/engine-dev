@@ -4,8 +4,7 @@
 ## About
 This one singular page serves as the sprawling thoughts of Shree (me) as I attempt to develop a game engine from scratch.
 
-## Introduction
-### Post 1
+### Post 1 - Introduction
 #### Monday, 6 January 2024
 So, why? Why am I making a game engine? It’s a daunting task, no doubt—very few get past the initial stages of engine development. So, why am I doing this? Well, it’s simple: I love the idea of it. The phrase "*from scratch*" just sounds awesome, and the thought of building something from the ground up and watching it grow is something I truly yearn for.
 
@@ -19,9 +18,7 @@ This series of blog posts is primarily to keep myself motivated, but it might al
 
 All external references (i.e., libraries) will be provided as hyperlinks, linking directly to their main pages.
 
-
-## Core Development
-### Post 2
+### Post 2 - Initial Setup
 #### 6 January 2025
 Before diving into any real programming, I need to decide on the coding environment, build system, and libraries. Initially, I was drawn to Rust and [wgpu](https://wgpu.rs/) as the “future” of graphics. I quickly whipped up a basic open-window script and started tinkering with the wgpu API, but it didn’t take long to realize this was too complex for me. Maybe it’s because Rust has an overly intricate syntax (it does), or maybe it’s just that I don’t really understand the language yet (I don’t).
 
@@ -78,7 +75,7 @@ In the next post, I'll bring in the engine's dependencies, and aim to create a s
 ####  Resources:
 - [CMake](https://cmake.org/)
 
-## Post 3
+## Post 3 - Testing the Dependencies
 ### 7 January 2025
 Forgot to mention I'll also be using [spdlog](https://github.com/gabime/spdlog) for logging.
 
@@ -191,3 +188,49 @@ I'll just keep this here in case I need to come back for a starting SDL, OpenGL 
 This was a shorter post, but I've been travelling, so little is to be expected from the next few days. 
 
 Next post, I'll probably explore some game engine architecture, and decide on the specifics of my game engine.
+
+## Post 4 - (Re)Considering Graphics API's
+### 10 January 2025
+Today I'm reconsidering using just OpenGL. While it is an easy to use graphics API and is cross-platform, I would like to ship this engine and actually develop games in it, so some possibly personal sacrifices got to be made. I'm tossing up between [sokol](https://github.com/floooh/sokol) with C++, or [BGFX](https://github.com/bkaradzic/bgfx) as a cross platform graphics API. Thye both abstract graphics API's and are wrappers for these API's. BGFX is fantastic, and has been used for game engines before (see the repo's real-world uses), I think I'll go for sokol. Not a lot of thought behind this one, to be frank, but we'll give it our best shot. For simple stuff, it's a bit more code, such as clearing the background:\
+Using OpenGL:
+```cpp
+gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress)
+// in update/draw loop
+glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+glClear(GL_COLOR_BUFFER_BIT);
+```
+vs in sokol:
+```cpp
+sg_swapchain swapchain = {
+    .width = screenWidth,
+    .height = screenHeight,
+    .sample_count = 0,
+    .color_format = SG_PIXELFORMAT_RGBA8,
+    .depth_format = SG_PIXELFORMAT_NONE,
+    .gl = {
+        .framebuffer = 0,
+    }
+};
+
+sg_desc desc;
+sg_setup(&desc);
+
+pass_action = (sg_pass_action) {
+    .colors[0] = {
+        .load_action = SG_LOADACTION_CLEAR,
+        .clear_value = { 1.0f, 0.0f, 0.0f, 1.0f }
+    }
+};
+// in update/draw loop
+sg_pass pass;
+pass.action = pass_action;
+pass.swapchain = swapchain;
+sg_begin_pass(pass);
+sg_end_pass();
+```
+So yeah, it's *kinda* drastic. The advantages and trade-offs for using sokol over OpenGL are many, but to simplify:
+> Using Sokol simplifies development, ensures cross-platform support, and speeds up shipping but sacrifices some low-level control and fine-tuned optimization. *- me*
+
+From experience, it's entirely possible that I will change mind after running into a roadblock, that being said, I aim to reduce regrets and work through issues in this project. I'll give it my best.
+
+In the next post, I'll actually get to exploring game engine design and what to expect from Asura.
