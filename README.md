@@ -1,5 +1,5 @@
 # Game Engine Development From Scratch
-[Link to the engine's repository](https://github.com/shreejitmurthy/AsuraEngine)
+<!-- [Link to the engine's repository](https://github.com/shreejitmurthy/AsuraEngine) -->
 
 ## About
 This one singular page serves as the sprawling thoughts of Shree (me) as I attempt to develop a game engine from scratch.
