@@ -4,8 +4,8 @@
 ## About
 This one singular page serves as the sprawling thoughts of Shree (me) as I attempt to develop a game engine from scratch.
 
-### Post 1 - Introduction
-#### Monday, 6 January 2024
+## Post 1 - Introduction
+### 6 January 2024
 So, why? Why am I making a game engine? It’s a daunting task, no doubt—very few get past the initial stages of engine development. So, why am I doing this? Well, it’s simple: I love the idea of it. The phrase "*from scratch*" just sounds awesome, and the thought of building something from the ground up and watching it grow is something I truly yearn for.
 
 I also see this as a fantastic learning opportunity. Most of my projects have been around ~5k lines of code, so managing a larger project like a game engine will give me valuable skills that (I believe) are useful in the industry. Plus, I just love games and game development. That said, I’m a terrible game developer and can never seem to finish a game. I’ve made games from scratch before, and I’m currently working on one in OpenGL and C++. I think this project will also prepare me well for my upcoming university degree, which starts soon.
@@ -18,8 +18,8 @@ This series of blog posts is primarily to keep myself motivated, but it might al
 
 All external references (i.e., libraries) will be provided as hyperlinks, linking directly to their main pages.
 
-### Post 2 - Initial Setup
-#### 6 January 2025
+## Post 2 - Initial Setup
+### 6 January 2025
 Before diving into any real programming, I need to decide on the coding environment, build system, and libraries. Initially, I was drawn to Rust and [wgpu](https://wgpu.rs/) as the “future” of graphics. I quickly whipped up a basic open-window script and started tinkering with the wgpu API, but it didn’t take long to realize this was too complex for me. Maybe it’s because Rust has an overly intricate syntax (it does), or maybe it’s just that I don’t really understand the language yet (I don’t).
 
 At the moment, Rust doesn’t offer me anything that C++ doesn’t already provide. Perhaps as I gain more experience with C and C++, I’ll come to appreciate why so many developers love Rust. But for now, I’ll stick with C++ and [OpenGL](https://www.opengl.org/), as they’re what I’m most familiar with. I did consider [Vulkan](https://www.vulkan.org/), but writing over 1.2k lines of code just to render a triangle? No thanks.
