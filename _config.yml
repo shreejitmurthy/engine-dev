@@ -4,3 +4,4 @@ show_downloads: true
 theme: jekyll-theme-minimal
 github:
   repository_url: https://github.com/shreejitmurthy/AsuraEngine
+  repository_nwo: shreejitmurthy/AsuraEngine
