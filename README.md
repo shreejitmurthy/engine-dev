@@ -191,7 +191,7 @@ Next post, I'll probably explore some game engine architecture, and decide on th
 
 ## Post 4 - (Re)Considering Graphics API's
 ### 10 January 2025
-Today I'm reconsidering using just OpenGL. While it is an easy to use graphics API and is cross-platform, I would like to ship this engine and actually develop games in it, so some possibly personal sacrifices got to be made. I'm tossing up between [sokol](https://github.com/floooh/sokol) with C++, or [BGFX](https://github.com/bkaradzic/bgfx) as a cross platform graphics API. They both abstract graphics API's and are wrappers for these API's. BGFX is fantastic, and has been used for game engines before (see the repo's real-world uses), but I think I'll go for sokol. Not a lot of thought behind this one, to be frank, but we'll give it our best shot. For simple stuff, it's a bit more code, such as clearing the background:\
+Today I'm reconsidering using just OpenGL. While it is an easy to use graphics API and is cross-platform, I would like to ship this engine and actually develop games in it, so some possibly personal sacrifices got to be made. I'm tossing up between [Sokol](https://github.com/floooh/sokol) with C++, or [BGFX](https://github.com/bkaradzic/bgfx) as a cross platform graphics API. They both abstract graphics API's and are wrappers for these API's. BGFX looks nice, and has been used for game engines before (see the repo's real-world uses), but I think I'll go for Sokol. Not a lot of thought behind this one, to be frank, but we'll give it our best shot. For simple stuff, it's a bit more code, such as clearing the background:\
 Using OpenGL:
 ```cpp
 gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress)
@@ -222,9 +222,16 @@ sg_begin_pass((sg_pass){
 });
 sg_end_pass();
 ```
-So yeah, it's *litte* bit more. The advantages and trade-offs for using sokol over OpenGL are many, but to simplify:
+So yeah, it's *litte* bit more. The advantages and trade-offs for using Sokol over OpenGL are many, but to simplify:
 > Using Sokol simplifies development, ensures cross-platform support, and speeds up shipping but sacrifices some low-level control and fine-tuned optimization. *- me*
 
 From experience, it's entirely possible that I will change mind after running into a roadblock, that being said, I aim to reduce regrets and work through issues in this project. I'll give it my best.
 
 In the next post, I'll actually get to exploring game engine design and what to expect from Asura.
+
+####  Resources:
+- [Sokol](https://github.com/floooh/sokol)
+
+## Post 5 - Game Engine Design
+### 11 January 2025
+There are numerous ways I can design this game engine, but all of them boil down what *my* personal design philosophy is. 
