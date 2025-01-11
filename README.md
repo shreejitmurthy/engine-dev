@@ -234,4 +234,16 @@ In the next post, I'll actually get to exploring game engine design and what to 
 
 ## Post 5 - Game Engine Design
 ### 11 January 2025
-There are numerous ways I can design this game engine, but all of them boil down what *my* personal design philosophy is. 
+There are countless ways to design a game engine, but ultimately, it boils down to *my* personal design philosophy. I tend to prefer game frameworks over traditional game engines. The distinction can be a bit nuanced, but here’s how I see it: a framework is code-only, where you call functions and interact with the framework’s API in the language it’s written in or a supported scripting language. Examples of popular game frameworks include [LÖVE](https://love2d.org/) and [Bevy](https://bevyengine.org/) (though I believe Bevy is planning to add an editor).  
+
+A game engine, on the other hand, typically includes a user interface and a built-in editor. Some engines lean more toward programming, requiring developers to manually handle typical game functions, such as [Defold](https://defold.com/). Others handle much more for you, like [Unity](https://unity.com/) or [Unreal](https://www.unrealengine.com/en-US), offering scripting languages, visual scripting solutions, or both.  
+
+Personally, I like having control over most systems in my games, shaping them however I see fit. That’s the goal for Asura: a non-intrusive game engine that provides freedom to write your own systems while offering assistance with the low-level stuff, like graphics APIs. I envision the engine opening a window with a game viewport, buttons, configuration settings, and the ability to create scripts that can be edited in the tool of your choice.  
+
+As for the scripting language, I haven’t decided yet, but I’m leaning toward either Lua or C#. The aim is for one of my friends—or really anyone with little to no programming experience—to be able to create games using the engine in a simple language without worrying about memory management.
+
+Much of this can be decided later, but it's good to have this written and decided on early, instead of thinking up a solution when I'm three-quarters the way through.
+
+I also forgot to mention, much of this series is actually following the 'Game Engine Series' by The Cherno on YouTube, see the playlist [here](https://www.youtube.com/playlist?list=PLlrATfBNZ98dC-V-N3m0Go4deliWHPFwT)
+
+While there will certainly be some similarities, I can almost gurantee that the final product will look nothing like The Cherno's engine (known as Hazel), I am simply using his series as it is a fantastic learning tool for game engine development.
