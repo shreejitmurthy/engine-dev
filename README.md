@@ -222,10 +222,7 @@ sg_begin_pass((sg_pass){
 });
 sg_end_pass();
 ```
-So yeah, it's *litte* bit more. The advantages and trade-offs for using Sokol over OpenGL are many, but to simplify:
-> Using Sokol simplifies development, ensures cross-platform support, and speeds up shipping but sacrifices some low-level control and fine-tuned optimization. *- me*
-
-From experience, it's entirely possible that I will change mind after running into a roadblock, that being said, I aim to reduce regrets and work through issues in this project. I'll give it my best.
+So yeah, it's *litte* bit more. While Sokol is pretty powerful and provides a really nice cross platform solution, I think that it's API is a little more confusing that I'd like, such as swapchains, passes, pipelines. Sticking with OpenGL is the best choice I believe. I was seriously considering-and had started writing code for-a Sokol based game engine, but I think sticking with industry-standard OpenGL is the best course of action here for reliable documentation, sheer number of tutorials and help online.
 
 In the next post, I'll actually get to exploring game engine design and what to expect from Asura.
 
