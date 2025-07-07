@@ -235,9 +235,14 @@ There are countless ways to design a game engine, but ultimately, it boils down 
 
 A game engine, on the other hand, typically includes a user interface and a built-in editor. Some engines lean more toward programming, requiring developers to manually handle typical game functions, such as [Defold](https://defold.com/). Others handle much more for you, like [Unity](https://unity.com/) or [Unreal](https://www.unrealengine.com/en-US), offering scripting languages, visual scripting solutions, or both.  
 
-Personally, I like having control over most systems in my games, shaping them however I see fit. That’s the goal for Asura: a non-intrusive game engine that provides freedom to write your own systems while offering assistance with the low-level stuff, like graphics APIs. I envision the engine opening a window with a game viewport, buttons, configuration settings, and the ability to create scripts that can be edited in the tool of your choice.  
+I think I'll probably make it effectively a lightweight version of Defold.
 
 As for the scripting language, I haven’t decided yet, but I’m leaning toward either Lua or C#. The aim is for one of my friends—or really anyone with little to no programming experience—to be able to create games using the engine in a simple language without worrying about memory management.
+
+So:
+* Lightweight engine and editor
+* Lua or C++ scripting
+* Simple and easy to use, but still effective for making games
 
 Much of this can be decided later, but it's good to have this written and decided on early, instead of thinking up a solution when I'm three-quarters the way through.
 
