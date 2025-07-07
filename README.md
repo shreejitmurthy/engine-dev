@@ -235,7 +235,7 @@ There are countless ways to design a game engine, but ultimately, it boils down 
 
 A game engine, on the other hand, typically includes a user interface and a built-in editor. Some engines lean more toward programming, requiring developers to manually handle typical game functions, such as [Defold](https://defold.com/). Others handle much more for you, like [Unity](https://unity.com/) or [Unreal](https://www.unrealengine.com/en-US), offering scripting languages, visual scripting solutions, or both.  
 
-I think I'll probably make it effectively a lightweight version of Defold.
+I'll try to go in the middle and make it probably similar to Defold in some aspects. Defold strikes a good balance between a framework and UI-heavy engine. 
 
 As for the scripting language, I haven’t decided yet, but I’m leaning toward either Lua or C#. The aim is for one of my friends—or really anyone with little to no programming experience—to be able to create games using the engine in a simple language without worrying about memory management.
 
@@ -249,3 +249,10 @@ Much of this can be decided later, but it's good to have this written and decide
 I also forgot to mention, much of this series is actually following the 'Game Engine Series' by The Cherno on YouTube, see the playlist [here](https://www.youtube.com/playlist?list=PLlrATfBNZ98dC-V-N3m0Go4deliWHPFwT)
 
 While there will certainly be some similarities, I can almost gurantee that the final product will look nothing like The Cherno's engine (known as Hazel), I am simply using his series as it is a fantastic learning tool for game engine development.
+
+## Post 6 - We're Back
+### 7 July 2025
+Woah there, looks like somebody started a project he ended up dropping. Classic. All jokes aside, I was particularly focused with my first year of university, and I wanted to get set in nicely as I am studying interstate (not in my home town). I'm back home now for the semester break, which gives me around a month now for solid development before I get back. Excuses aside, I have really been thinking about what I *want* to do with my time programming. Is it game development? Well... yeah, but not without an engine. I've tried too many times in the past and failed short due to overwhelming bugs. Then just use a game engine? Well... yeah, that's logical, but I'm not really a logical guy. So the next best thing is to get back into developing my own engine! How exciting. 
+
+Anyway, I'm getting back into it where I left off after getting basic logging with `spdlog`, now I'm getting an event system in. 
+<!-- TODO: Cont. here with event system design>
