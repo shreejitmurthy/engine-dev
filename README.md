@@ -248,11 +248,11 @@ Much of this can be decided later, but it's good to have this written and decide
 
 I also forgot to mention, much of this series is actually following the 'Game Engine Series' by The Cherno on YouTube, see the playlist [here](https://www.youtube.com/playlist?list=PLlrATfBNZ98dC-V-N3m0Go4deliWHPFwT)
 
-While there will certainly be some similarities, I can almost gurantee that the final product will look nothing like The Cherno's engine (known as Hazel), I am simply using his series as it is a fantastic learning tool for game engine development.
+While there will certainly be some similarities, I can almost gurantee that the final product will look nothing like The Cherno's engine (known as Hazel). Since I know little to nothing about game engine development, his videos are a good way to get me kickstarted. Once I'm neck deep into the project I'll likely be using his videos less and less.
 
-## Post 6 - We're Back
+<!-- ## Post 6 - We're Back
 ### 7 July 2025
 Woah there, looks like somebody started a project he ended up dropping. Classic. All jokes aside, I was particularly focused with my first year of university, and I wanted to get set in nicely as I am studying interstate (not in my home town). I'm back home now for the semester break, which gives me around a month now for solid development before I get back. Excuses aside, I have really been thinking about what I *want* to do with my time programming. Is it game development? Well... yeah, but not without an engine. I've tried too many times in the past and failed short due to overwhelming bugs. Then just use a game engine? Well... yeah, that's logical, but I'm not really a logical guy. So the next best thing is to get back into developing my own engine! How exciting. 
 
-Anyway, I'm getting back into it where I left off after getting basic logging with `spdlog`, now I'm getting an event system in. 
+Anyway, I'm getting back into it where I left off after getting basic logging with `spdlog`, now I'm getting an event system in.  -->
 <!-- TODO: Cont. here with event system design>
