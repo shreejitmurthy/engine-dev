@@ -226,7 +226,7 @@ sg_begin_pass((sg_pass){
 });
 sg_end_pass();
 ```
-So yeah, it's *litte* bit more. While Sokol is pretty powerful and provides a really nice cross platform solution, I think that it's API is a little more confusing that I'd like, such as swapchains, passes, pipelines. Sticking with OpenGL is the best choice I believe. I was seriously considering-and had started writing code for-a Sokol based game engine, but I think sticking with industry-standard OpenGL is the best course of action here for reliable documentation, sheer number of tutorials and help online.
+So yeah, it's *litte* bit more. While Sokol is pretty powerful and provides a really nice cross platform solution, I think that it's API is a little less documented than I'd like. The examples are a good way to go, but I've done some time with Sokol and realised that it's documentation only being in the header file is suboptimal for my workflow. Sticking with OpenGL is the best choice I believe. I was seriously considering-and had started writing code for-a Sokol based game engine, but I think sticking with industry-standard OpenGL is the best course of action here for reliable documentation, sheer number of tutorials and help online.
 
 In the next post, I'll actually get to exploring game engine design and what to expect from Asura.
 
