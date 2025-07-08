@@ -189,6 +189,10 @@ This was a shorter post, but I've been travelling, so little is to be expected f
 
 Next post, I'll probably explore some game engine architecture, and decide on the specifics of my game engine.
 
+**Resources**:
+* [SDL](https://github.com/libsdl-org/SDL)
+* [spdlog](https://github.com/gabime/spdlog)
+
 ## Post 4 - (Re)Considering Graphics API's
 ### 10 January 2025
 Today I'm reconsidering using just OpenGL. While it is an easy to use graphics API and is cross-platform, I would like to ship this engine and actually develop games in it, so some possibly personal sacrifices got to be made. I'm tossing up between [Sokol](https://github.com/floooh/sokol) with C++, or [BGFX](https://github.com/bkaradzic/bgfx) as a cross platform graphics API. They both abstract graphics API's and are wrappers for these API's. BGFX looks nice, and has been used for game engines before (see the repo's real-world uses), but I think I'll go for Sokol. Not a lot of thought behind this one, to be frank, but we'll give it our best shot. For simple stuff, it's a bit more code, such as clearing the background:\
@@ -250,9 +254,10 @@ I also forgot to mention, much of this series is actually following the 'Game En
 
 While there will certainly be some similarities, I can almost gurantee that the final product will look nothing like The Cherno's engine (known as Hazel). Since I know little to nothing about game engine development, his videos are a good way to get me kickstarted. Once I'm neck deep into the project I'll likely be using his videos less and less.
 
-<!-- ## Post 6 - We're Back
+## Post 6 - We're Back
 ### 7 July 2025
 Woah there, looks like somebody started a project he ended up dropping. Classic. All jokes aside, I was particularly focused with my first year of university, and I wanted to get set in nicely as I am studying interstate (not in my home town). I'm back home now for the semester break, which gives me around a month now for solid development before I get back. Excuses aside, I have really been thinking about what I *want* to do with my time programming. Is it game development? Well... yeah, but not without an engine. I've tried too many times in the past and failed short due to overwhelming bugs. Then just use a game engine? Well... yeah, that's logical, but I'm not really a logical guy. So the next best thing is to get back into developing my own engine! How exciting. 
 
-Anyway, I'm getting back into it where I left off after getting basic logging with `spdlog`, now I'm getting an event system in.  -->
-<!-- TODO: Cont. here with event system design>
+Anyway, I'm getting back into it where I left off after getting basic logging with `spdlog`, now I'm getting an event system in.
+
+I'm spending this week writing the structure for an event system. It's nothing too interesting, I'll probably make another post when things get fun.
