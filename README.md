@@ -260,4 +260,51 @@ Woah there, looks like somebody started a project he ended up dropping. Classic.
 
 Anyway, I'm getting back into it where I left off after getting basic logging with `spdlog`, now I'm getting an event system in.
 
-I'm spending this week writing the structure for an event system. It's nothing too interesting, I'll probably make another post when things get fun.
+I'm spending this week writing the structure for an event system. It's largely the same as Cherno's but with some slight adjustements. I've made my own event bus/queue for queued dispatching:
+```cpp
+class ASURA_API EventBus {
+    public:
+        using EventCallbackFn = std::function<void(Event&)>;
+
+        void PushEvent(Event* e) {
+            m_Queue.push(e);
+        }
+
+        void DispatchAll(const EventCallbackFn& callback) {
+            while (!m_Queue.empty()) {
+                Event* e = m_Queue.front();
+                m_Queue.pop();
+                callback(*e);
+                delete e;
+            }
+        }
+
+    private:
+        std::queue<Event*> m_Queue;
+    };
+```
+Which then allows for specific on event checking or just generalisations:
+```cpp
+void OnEvent(Asura::Event& e) {
+    Asura::EventDispatcher dispatcher(e);
+    // Specific for a WindowResizeEvent
+    dispatcher.Dispatch<Asura::WindowResizeEvent>([](Asura::WindowResizeEvent& e) {
+        spdlog::info(e.ToString());
+        return true;
+    });
+}
+```
+Then in the game loop it's simple:
+```cpp
+void Application::Run() {
+    Asura::EventBus bus;
+    bus.PushEvent(new Asura::WindowResizeEvent(1200, 720));
+    bus.DispatchAll(OnEvent);
+}
+```
+Outputs:
+```
+[2025-07-13 21:39:31.424] [info] WindowResizeEvent: 1200, 720
+```
+
+It's nothing particularly interesting, but is critical for the engine's foundation. Next, I'll look to do some window abstraction and event handling with SDL.
